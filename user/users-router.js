@@ -32,11 +32,11 @@ router.get("/:id", restricted, (req, res) => {
     })
 })
 
-router.put("/:id", restricted, (req, res) => {
+router.put("/:id", (req, res) => {
     Users.update(req.params.id, req.body)
     .then(user => {
         if(user) {
-            res.status(200).json(user)
+            res.status(200).json({message: "User updated."})
         } else {
             res.status(404).json({error: "The user could not be found."})
         }
@@ -47,13 +47,13 @@ router.put("/:id", restricted, (req, res) => {
     })
 })
 
-router.delete("/:id", (req, res) => {
+router.delete("/:id", restricted, (req, res) => {
     Users.getById(req.params.id)
     .then(user => {
         if (user.length != 0) {
             Users.remove(req.params.id)
             .then(deleted => {
-                res.status(200).json(deleted)
+                res.status(200).json({message: "User deleted."})
             })
             .catch(err => {
                 console.log(err)
