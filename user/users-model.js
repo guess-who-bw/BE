@@ -11,7 +11,7 @@ module.exports = {
 
 function get() {
     return db("users")
-        .select("id", "username", "password");
+        .select("id", "email", "password");
 }
 
 function getBy(filter) {
@@ -21,7 +21,7 @@ function getBy(filter) {
 
 function getById(id) {
     return db("users")
-    .select("id", "username", "password")
+    .select("id", "email", "password")
         .where({id})
         .first();
 }
