@@ -15,7 +15,7 @@ router.post("/register", (req, res) => {
     const user = req.body;
     const hash = bc.hashSync(user.password, 10);
     user.password = hash;
-    if (!user.username || !user.password) {
+    if (!user.email || !user.password) {
         res.status(400).json({error: "Username and password are required."})
     } else {
         Users.insert(user)
@@ -30,8 +30,8 @@ router.post("/register", (req, res) => {
 })
 
 router.post("/login", (req, res) => {
-    const { username, password } = req.body;
-    Users.getBy({ username })
+    const { email, password } = req.body;
+    Users.getBy({ email })
     .first()
     .then(user => {
         if (user && bc.compareSync(password, user.password)) {
@@ -50,7 +50,7 @@ router.post("/login", (req, res) => {
 function generateToken(user) {
     const payload = {
         userId: user.id,
-        username: user.username
+        username: user.email
     };
     const options = {
         expiresIn: "1d"
