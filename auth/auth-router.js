@@ -16,7 +16,7 @@ router.post("/register", (req, res) => {
     const hash = bc.hashSync(user.password, 10);
     user.password = hash;
     if (!user.email || !user.password) {
-        res.status(400).json({error: "Username and password are required."})
+        res.status(400).json({error: "Email and password are required."})
     } else {
         Users.insert(user)
         .then(saved => {
