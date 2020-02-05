@@ -21,7 +21,7 @@ function getBy(filter) {
 
 function getById(id) {
     return db("users")
-    .select("id", "email", "password")
+    .select("id", "email", "password", "points")
         .where({id})
         .first();
 }
