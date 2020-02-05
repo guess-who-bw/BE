@@ -31,3 +31,17 @@ expects:
 ```
 returns:
 token
+
+PUT to /api/users/:id
+expects: 
+```
+{
+    points: 12,
+}
+```
+returns:
+-
+
+DELETE to /api/users/:id
+returns:
+-
