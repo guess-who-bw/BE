@@ -20,7 +20,19 @@ router.post("/register", (req, res) => {
     } else {
         Users.insert(user)
         .then(saved => {
-            res.status(201).json(saved)
+            const email = saved.email;
+            Users.getBy({ email })
+            .first()
+            .then(user => {
+                const token = generateToken(user);
+                const id = user.id;
+                const points = user.points;
+                res.status(200).json({token, id, points})
+    })
+    .catch(err => {
+        console.log(err)
+        res.status(500).json({error: "Error while signing in."})
+    })
         })
         .catch(err => {
             console.log(err)
@@ -36,9 +48,9 @@ router.post("/login", (req, res) => {
     .then(user => {
         if (user && bc.compareSync(password, user.password)) {
             const token = generateToken(user);
-            console.log(user);
             const id = user.id;
-            res.status(200).json({token, id})
+            const points = user.points;
+            res.status(200).json({token, id, points})
         } else {
             res.status(401).json({error: "Invalid credentials."})
         }

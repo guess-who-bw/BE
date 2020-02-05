@@ -8,16 +8,16 @@ POST to /api/register
 expects:
 ```
 {
-    username: "username",
+    email: "email",
     password: "password"
 }
 ```
 returns:
 ```
 {
-    "id": 1, 
-    username: "username",
-    password: "password"
+    id: id, 
+    token: "token",
+    points: points
 }
 ```
 
@@ -25,23 +25,37 @@ POST to /api/login
 expects: 
 ```
 {
-    username: "username",
+    email: "email",
     password: "password"
 }
 ```
 returns:
-token
+{
+    id: id, 
+    token: "token",
+    points: points
+}
 
 PUT to /api/users/:id
 expects: 
 ```
 {
-    points: 12,
+    points: points,
 }
 ```
 returns:
+```
+{
+ "message": "User updated."
+}
+```
 -
 
 DELETE to /api/users/:id
 returns:
+```
+{
+ "message": "User deleted."
+}
+```
 -
