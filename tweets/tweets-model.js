@@ -66,7 +66,8 @@ function get() {
                     })
 
                     return {
-                        rounds: shuffle(rounds),
+                        // rounds: shuffle(rounds),
+                        rounds: rounds,
                     }
                 })
         })
