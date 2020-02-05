@@ -30,11 +30,31 @@ expects:
 }
 ```
 returns:
+```
 {
     id: id, 
     token: "token",
     points: points
 }
+```
+
+GET to /api/users/:id
+returns:
+```
+{
+    id: id
+    email: "email",
+    password: "password",
+    points: points
+}
+```
+
+GET to /api/tweets
+returns:
+```
+rounds data structure
+```
+
 
 PUT to /api/users/:id
 expects: 
@@ -43,13 +63,14 @@ expects:
     points: points,
 }
 ```
+
 returns:
 ```
 {
  "message": "User updated."
 }
 ```
--
+
 
 DELETE to /api/users/:id
 returns:
@@ -58,4 +79,4 @@ returns:
  "message": "User deleted."
 }
 ```
--
+
