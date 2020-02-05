@@ -9,27 +9,32 @@ exports.seed = function(knex) {
         {
           id: 1, 
           name: 'Bernie Sanders',
-          twitter_handle: 'BernieSanders'
+          handle: 'BernieSanders',
+          picture_url: "https://pbs.twimg.com/profile_images/1097820307388334080/9ddg5F6v_400x400.png"
         },
         {
           id: 2, 
           name: 'Elizabeth Warren',
-          twitter_handle: 'ewarren'
+          handle: 'ewarren',
+          picture_url: "https://pbs.twimg.com/profile_images/1215406626049413121/LiVKh64l_400x400.jpg"
         },
         {
           id: 3, 
           name: 'Andrew Yang',
-          twitter_handle: 'AndrewYang'
+          handle: 'AndrewYang',
+          picture_url: "https://pbs.twimg.com/profile_images/1224611308487741440/ImUlMyTg_400x400.jpg"
         },
         {
           id: 4, 
           name: 'Joe Biden',
-          twitter_handle: 'JoeBiden'
+          handle: 'JoeBiden',
+          picture_url: "https://pbs.twimg.com/profile_images/1223955397008068614/6j51JwXU_400x400.jpg"
         },
         {
           id: 5, 
           name: 'Donald Trump',
-          twitter_handle: 'realDonaldTrump'
+          handle: 'realDonaldTrump',
+          picture_url: "https://pbs.twimg.com/profile_images/874276197357596672/kUuht00m_400x400.jpg"
         }
       ]);
     });

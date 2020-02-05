@@ -4,7 +4,7 @@ exports.up = function(knex) {
         tbl.increments();
         tbl.string("name")
             .notNullable();
-        tbl.string("twitter_handle")
+        tbl.string("handle")
             .notNullable()
             .unique();
     })

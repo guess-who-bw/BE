@@ -1,8 +1,17 @@
 const router = require('express').Router();
 
+const Tweets = require("../tweets/tweets-model.js");
+
 const restricted = require("../auth/restricted.js");
 
 router.get('/', (req, res) => {
+    Tweets.get()
+    .then(tweets => {
+        res.status(200).json(tweets)
+    })
+})
+
+router.get('/placeholder', (req, res) => {
     const candidates = [
         {
             id: 0,
